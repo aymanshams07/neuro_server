@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<style>
+h1 {text-align: center;}
+p {text-align: center;}
+div {text-align: center;}
+body * {
+   margin: 10px;
+   padding: 2px;
+}
+
+</style>
+    <h1>Neuro-Music-ML</h1>
+    <script>
+        var videos = ["https://www.youtube.com/embed/olesay0rfFw", "https://www.youtube.com/embed/-74YVxkqNZs", "https://www.youtube.com/embed/TbF1ISohVpo", "https://www.youtube.com/embed/yNq5esLN_p8"];
+        window.onload = function () {
+            var playerDiv = document.getElementById("random_player");
+            var player = document.createElement("IFRAME");
+            var randomVideoUrl = videos[Math.floor(Math.random() * videos.length)];
+            player.setAttribute('width', '640');
+            player.setAttribute('height', '390');
+            player.setAttribute('src', randomVideoUrl);
+            playerDiv.appendChild(player);
+        };
+    </script>
+</head>
+
+
+<body>
+<div id="random_player" />
+
+<form action="/toz" method=POST>
+    {% raw xsrf_form_html() %}
+    Name
+    <input type="text" name="name">
+    Rating
+    <input type="number" name="rating">
+    Bidding Amount
+    <input type="number" name="bid">
+    <input type="submit"  />
+
+    </form>
+
+</body>
+
+</html>
